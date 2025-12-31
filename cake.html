@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cake cutting ceremony</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .stage{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;text-align:center}
+    #cake{width:min(360px,80vw);cursor:pointer;transition:transform .3s;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+    #cake:hover{transform:scale(1.03)}
+    #knife{position:absolute; width:150px; transform-origin:30% 70%; transition:transform 1s ease; filter:drop-shadow(0 10px 20px rgba(0,0,0,.35))}
+    #knife.hidden{display:none}
+    .confetti{position:fixed;width:10px;height:10px;background:hotpink;animation:fall 3s linear;top:-20px}
+    @keyframes fall{0%{transform:translateY(-10vh) rotate(0deg)}100%{transform:translateY(100vh) rotate(360deg)}}
+    .wish{margin-top:18px;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  <svg class="hearts"></svg>
+
+  <header>
+    <nav>
+      <div class="brand">For You, On Your Birthday</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="cake.html">Cake Ceremony</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="stage">
+      <h2>Cut the cake 🎂</h2>
+      <p class="sub">Tap the cake to celebrate — then make a wish.</p>
+
+      <div style="position:relative;display:inline-block">
+        <img id="cake" src="assets/cake.png" alt="Birthday cake">
+        <img id="knife" class="hidden" src="assets/knife.png" alt="Knife" style="left:50%; top:30%">
+      </div>
+
+      <p class="wish reveal" id="wishLine" style="display:none">Your wish is safe with me 💖</p>
+
+      <div class="card reveal" style="margin-top:18px;max-width:640px">
+        <p style="margin:0">Thank you for being the brightest, kindest, most beautiful part of my days. Here’s to all the sweetness ahead.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Made with love • © <span id="year"></span></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const cake = document.getElementById('cake');
+    const knife = document.getElementById('knife');
+    const wishLine = document.getElementById('wishLine');
+
+    cake.addEventListener('click', ()=>{
+      knife.classList.remove('hidden');
+      // Animate knife slice
+      knife.style.transform = 'translate(-20px, 100px) rotate(65deg)';
+      setTimeout(()=>{
+        cake.src = 'assets/cake-sliced.png';
+        launchConfetti();
+        wishLine.style.display='block';
+        wishLine.classList.add('visible');
+      }, 1000);
+    });
+
+    function launchConfetti(){
+      const colors = ['#ff6fa1','#ffd27d','#7f5af0','#7cf29b','#f2e97c'];
+      for(let i=0;i<60;i++){
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random()*100 + 'vw';
+        c.style.background = colors[Math.floor(Math.random()*colors.length)];
+        c.style.animationDuration = (2+Math.random()*2)+'s';
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(), 3000);
+      }
+    }
+  </script>
+</body>
+</html>
