@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  <svg class="hearts"></svg>
+
+  <header>
+    <nav>
+      <div class="brand">For You, On Your Birthday</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="cake.html">Cake Ceremony</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero-wrap">
+      <div>
+        <h1>Happy Birthday, My Love</h1>
+        <p class="sub">Today is all about you — your laugh, your light, and every chapter we’ve written together. Let’s press play on our memories.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
+          <a class="btn btn-accent" href="#" id="enterBtn">Enter the site</a>
+          <a class="btn" href="timeline.html">Relive our story</a>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <div class="music-player">
+            <button id="playBtn" class="btn btn-accent" style="padding:8px 14px">Play</button>
+            <div>
+              <div style="font-weight:600">“Our Song Title”</div>
+              <div style="color:var(--muted);font-size:14px">Artist • 3:45</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <span id="timeNow" style="color:var(--muted);font-size:12px">0:00</span>
+              <div class="progress"><div id="progressBar"></div></div>
+              <span id="timeDur" style="color:var(--muted);font-size:12px">3:45</span>
+            </div>
+          </div>
+          <audio id="audioEl">
+            <source src="assets/song.mp3" type="audio/mpeg" />
+          </audio>
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <button id="muteBtn" class="btn">Mute</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <video class="hero-video" id="heroVideo" playsinline muted loop autoplay poster="assets/video-poster.jpg">
+          <source src="assets/video.mp4" type="video/mp4">
+        </video>
+        <div class="overlay-caption">“You + me, always.”</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Made with love • © <span id="year"></span></div>
+  </footer>
+
+  <!-- Background music that starts on first click anywhere -->
+  <audio id="bgMusic" loop>
+    <source src="assets/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+  <script>
+    // Start music on "Enter" button immediately, for a reel-like feel
+    document.getElementById('enterBtn').addEventListener('click', (e)=>{
+      e.preventDefault();
+      const m = document.getElementById('bgMusic');
+      m.play().catch(()=>{});
+    });
+  </script>
+</body>
+</html>
