@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fff5f7;          /* soft pink background */
+      --card:#ffffff;        /* white cards */
+      --text:#4a3c47;        /* romantic deep gray text */
+      --muted:#a88a9a;       /* muted pink-gray */
+      --accent:#ff8fb1;      /* pastel pink accent */
+      --accent2:#ffc1d6;     /* lighter pink accent */
+      --gold:#d4af37;        /* soft gold highlight */
+      --glow:rgba(255,143,177,.35);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:'Inter',sans-serif;opacity:0;transition:opacity 1s ease;}
+    body.loaded{opacity:1}
+    h1,h2{font-family:'Playfair Display',serif}
+    h1{font-size:clamp(36px,6vw,72px);margin:0 0 12px;color:var(--accent)}
+    h2{font-size:clamp(28px,4vw,42px);margin:0 0 6px;color:var(--accent)}
+    .sub{color:var(--muted)}
+    .container{max-width:960px;margin:0 auto;padding:24px}
+    section{min-height:100vh;padding:60px 0;transform:translateY(30px);opacity:0;transition:all .8s ease}
+    section.visible{transform:translateY(0);opacity:1}
+    header{position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);z-index:50;border-bottom:1px solid #f3dce4}
+    nav{display:flex;justify-content:center;gap:20px;padding:12px}
+    nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:8px;background:rgba(255,143,177,.15)}
+    nav a:hover{background:rgba(255,143,177,.35)}
+    .card{background:var(--card);padding:18px;border-radius:16px;margin:12px 0;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+    img,video{max-width:100%;border-radius:12px}
+    footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #f3dce4;background:#fff0f5}
+    /* Cake ceremony */
+    .stage{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    #cake{width:min(360px,80vw);cursor:pointer;transition:.3s;box-shadow:0 20px 60px rgba(255,143,177,.35)}
+    #cake:hover{transform:scale(1.05)}
+    #knife{position:absolute;width:150px;transform-origin:30% 70%;transition:transform 1s ease;filter:drop-shadow(0 10px 20px rgba(0,0,0,.25))}
+    #knife.hidden{display:none}
+    .confetti{position:fixed;width:10px;height:10px;top:-20px;animation:fall 3s linear}
+    @keyframes fall{0%{transform:translateY(-10vh)}100%{transform:translateY(100vh)}}
+    .wish{margin-top:18px;font-weight:700;color:var(--gold)}
+    /* Background hearts */
+    .gradient-bg{position:fixed;inset:0;z-index:-2;background:
+      radial-gradient(1200px 600px at 20% 20%, rgba(255,143,177,.25), transparent 60%),
+      radial-gradient(1000px 500px at 80% 80%, rgba(255,193,214,.25), transparent 60%),
+      linear-gradient(180deg,#fff5f7 0%,#ffeef3 100%)}
+    .hearts{position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.35}
+    .heart{position:absolute;width:22px;height:22px;animation:floatUp linear infinite}
+    @keyframes floatUp{0%{transform:translateY(0);opacity:0}10%{opacity:.9}100%{transform:translateY(-110vh);opacity:0}}
+  </style>
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  <svg class="hearts"></svg>
+
+  <header>
+    <nav>
+      <a href="#cake">Cake Ceremony</a>
+      <a href="#story">Story</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#timeline">Timeline</a>
+    </nav>
+  </header>
+
+  <!-- Cake Ceremony -->
+  <section id="cake" class="stage">
+    <h2>Cut the cake 🎂</h2>
+    <p class="sub">Tap the cake to celebrate — then make a wish.</p>
+    <div style="position:relative;display:inline-block">
+      <img id="cakeImg" src="assets/cake.png" alt="Birthday cake">
+      <img id="knife" class="hidden" src="assets/knife.png" alt="Knife" style="left:50%;top:30%">
+    </div>
+    <p class="wish" id="wishLine" style="display:none">Your wish is safe with me 💖</p>
+  </section>
+
+  <!-- Story -->
+  <section id="story" class="container">
+    <h2>The story of you</h2>
+    <p class="sub">A love letter to the way you move through the world.</p>
+    <div class="card">You make ordinary moments feel cinematic. Your laugh is proof that magic is real.</div>
+    <div class="card">Your kindness shows up in every small gesture. You are my favorite view.</div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="container">
+    <h2>Little frames of forever</h2>
+    <p class="sub">Snapshots that feel like home.</p>
+    <div class="card"><img src="assets/photo-1.jpg" alt="Memory"></div>
+    <div class="card"><img src="assets/photo-2.jpg" alt="Memory"></div>
+    <div class="card"><video controls poster="assets/video-poster.jpg"><source src="assets/video.mp4" type="video/mp4"></video></div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="container">
+    <h2>Our timeline</h2>
+    <p class="sub">Every moment, a breadcrumb back to you.</p>
+    <div class="card"><strong>First hello — 2023:</strong> That smile stayed longer than it should have.</div>
+    <div class="card"><strong>First coffee — 2023:</strong> We laughed like kids learning secrets.</div>
+    <div class="card"><strong>First trip — 2024:</strong> New places felt familiar with you beside me.</div>
+    <div class="card"><strong>Your birthday — Today:</strong> I built this to say you’re my favorite chapter.</div>
+  </section>
+
+  <footer>Made with love • © <span id="year"></span></footer>
+
+  <!-- Background music -->
+  <audio id="bgMusic" loop>
+    <source src="assets/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Fade in on load
+    window.addEventListener('DOMContentLoaded', ()=>{document.body.classList.add('loaded');});
+
+    // Smooth scroll nav
+    document.querySelectorAll('nav a').forEach(link=>{
+      link.addEventListener('click', e=>{
+        const id = link.getAttribute('href');
+        const target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth'});
+        }
+      });
+    });
+
+    // Reveal sections
+    const sections=document.querySelectorAll('section');
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+    },{threshold:.2});
+    sections.forEach(s=>obs.observe(s));
+
+    // Hearts background
+    (function hearts(){
+      const svg=document.querySelector('.hearts');
+      const w=window.innerWidth;
+      const colors=['#
