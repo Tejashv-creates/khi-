@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  <svg class="hearts"></svg>
+
+  <header>
+    <nav>
+      <div class="brand">For You, On Your Birthday</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="cake.html">Cake Ceremony</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Little frames of forever</h2>
+      <p class="sub">Snapshots that feel like home.</p>
+
+      <div class="grid-3 reveal">
+        <div class="card"><img src="assets/photo-1.jpg" alt="Memory one"></div>
+        <div class="card"><img src="assets/photo-2.jpg" alt="Memory two"></div>
+        <div class="card"><img src="assets/photo-3.jpg" alt="Memory three"></div>
+      </div>
+      <div class="grid-3 reveal" style="margin-top:18px">
+        <div class="card"><img src="assets/photo-4.jpg" alt="Memory four"></div>
+        <div class="card"><img src="assets/photo-5.jpg" alt="Memory five"></div>
+        <div class="card"><img src="assets/photo-6.jpg" alt="Memory six"></div>
+      </div>
+      <div class="grid-3 reveal" style="margin-top:18px">
+        <div class="card"><img src="assets/photo-7.jpg" alt="Memory seven"></div>
+        <div class="card"><img src="assets/photo-8.jpg" alt="Memory eight"></div>
+        <div class="card"><img src="assets/photo-9.jpg" alt="Memory nine"></div>
+      </div>
+
+      <div class="card reveal" style="margin-top:18px">
+        <video controls poster="assets/video-poster.jpg">
+          <source src="assets/video.mp4" type="video/mp4" />
+          Your browser doesn’t support HTML5 video.
+        </video>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Made with love • © <span id="year"></span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
