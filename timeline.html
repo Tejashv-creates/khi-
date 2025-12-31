@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our timeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .timeline{position:relative;padding-left:26px}
+    .timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:999px}
+    .tl-item{position:relative;margin-bottom:18px}
+    .tl-item::before{content:"";position:absolute;left:-3px;top:6px;width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 4px rgba(255,111,161,.15)}
+    .tl-date{font-weight:700;color:var(--gold);margin-bottom:8px}
+    .tl-text{color:var(--text);opacity:.9}
+  </style>
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  <svg class="hearts"></svg>
+
+  <header>
+    <nav>
+      <div class="brand">For You, On Your Birthday</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="cake.html">Cake Ceremony</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Our timeline</h2>
+      <p class="sub">Every moment, a breadcrumb back to you.</p>
+
+      <div class="timeline reveal">
+        <div class="card tl-item">
+          <div class="tl-date">First hello — 2023</div>
+          <div class="tl-text">That quick smile that stayed longer than it should have. I’ve been falling ever since.</div>
+        </div>
+        <div class="card tl-item">
+          <div class="tl-date">First coffee — 2023</div>
+          <div class="tl-text">We laughed like kids learning secrets. Time bent around us.</div>
+        </div>
+        <div class="card tl-item">
+          <div class="tl-date">First trip — 2024</div>
+          <div class="tl-text">New places felt familiar with you beside me.</div>
+        </div>
+        <div class="card tl-item">
+          <div class="tl-date">Your birthday — Today</div>
+          <div class="tl-text">I built this to say what words sometimes can’t: you’re my favorite chapter.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Made with love • © <span id="year"></span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
